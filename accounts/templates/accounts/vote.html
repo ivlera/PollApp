@@ -1,0 +1,33 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ poll.question }}</h3>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>
+                <input type="radio" name="poll" value="option1" required>
+                {{ poll.option_one }}
+            </label>
+            <label>
+                <input type="radio" name="poll" value="option2" required>
+                {{ poll.option_two }}
+            </label>
+            <label>
+                <input type="radio" name="poll" value="option3" required>
+                {{ poll.option_three }}
+            </label>
+
+            <button type="submit" class="btn btn-light btn-xs">Submit</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
